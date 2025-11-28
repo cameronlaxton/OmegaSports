@@ -1,0 +1,84 @@
+name: Validate Modules
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Check module structure
+      run: |
+        echo "Validating module directory structure..."
+        test -d modules/foundation || exit 1
+        test -d modules/analytics || exit 1
+        test -d modules/modeling || exit 1
+        test -d modules/simulation || exit 1
+        test -d modules/betting || exit 1
+        test -d modules/adjustments || exit 1
+        test -d modules/utilities || exit 1
+        echo "✓ Directory structure valid"
+    
+    - name: Check required files exist
+      run: |
+        echo "Checking required files..."
+        test -f config/CombinedInstructions.md || exit 1
+        test -f MODULE_LOAD_ORDER.md || exit 1
+        test -f README.md || exit 1
+        echo "✓ Required files present"
+    
+    - name: Validate module files have Python blocks
+      run: |
+        echo "Validating Python code blocks in modules..."
+        python3 << 'EOF'
+        import os
+        import re
+        
+        module_dirs = [
+            "modules/foundation",
+            "modules/analytics", 
+            "modules/modeling",
+            "modules/simulation",
+            "modules/betting",
+            "modules/adjustments",
+            "modules/utilities"
+        ]
+        
+        errors = []
+        for module_dir in module_dirs:
+            if not os.path.exists(module_dir):
+                continue
+            for filename in os.listdir(module_dir):
+                if filename.endswith('.md'):
+                    filepath = os.path.join(module_dir, filename)
+                    with open(filepath, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                        # Check for Python code blocks
+                        if '```python' not in content:
+                            errors.append(f"{filepath}: No Python code block found")
+        
+        if errors:
+            print("Errors found:")
+            for error in errors:
+                print(f"  - {error}")
+            exit(1)
+        else:
+            print("✓ All module files contain Python code blocks")
+        EOF
+    
+    - name: Check module loading order file
+      run: |
+        echo "Validating MODULE_LOAD_ORDER.md references..."
+        if grep -q "modules/foundation/model_config.md" MODULE_LOAD_ORDER.md; then
+          echo "✓ Module paths use new directory structure"
+        else
+          echo "✗ Module paths may not be updated"
+          exit 1
+        fi
+
