@@ -39,18 +39,34 @@ Modules must be loaded in this exact sequence:
 
 ## Loading Instructions
 
-For each module:
-1. Open the file
-2. Read metadata header
-3. Extract every ```python``` block
-4. Execute them using the available sandbox execution method
+**Module Source Priority:**
+1. GitHub repository (preferred if available)
+2. Space files (valid if they match GitHub versions)
+3. Previous session context (if modules already loaded)
 
-## Critical Rules
+**For each module:**
+- Attempt to load from GitHub first
+- If GitHub unavailable or token-constrained, load from Space files
+- Extract every ```python``` block
+- Execute them using the available sandbox execution method
 
-- **NEVER skip modules** - All 19 modules must be loaded
-- **NEVER change the order** - Dependencies require this exact sequence
-- **If a module fails to load**: HALT ANALYSIS and report the failure
-- **NEVER improvise** - Do not fabricate fallback calculations
+## Loading Strategy
+
+**Loading Approach:**
+- Load foundation modules (1-3) first - these are critical
+- Load remaining modules in batches or on-demand as needed
+- If token-constrained, prioritize: foundation → simulation → betting → utilities
+- You can proceed with analysis once critical modules are loaded, loading others as needed
+
+**If a module fails to load:**
+- Check if available in Space files
+- If truly unavailable from all sources: **HALT ANALYSIS** and report failure
+- **NEVER** improvise calculations via LLM reasoning
+- **NEVER** fabricate fallback numbers
+- Clearly indicate which module failed and why
+
+**Critical Requirement:**
+All quantitative outputs MUST originate from module functions. The source of modules (GitHub vs Space files) is less important than ensuring module functions are used.
 
 ## Module Dependencies
 
@@ -71,7 +87,7 @@ modules/analytics/universal_analytics.md
 modules/analytics/league_baselines.md
 modules/analytics/market_analysis.md
 modules/modeling/realtime_context.md
-modules/modeling/injury_adjustments.md
+modules/adjustments/injury_adjustments.md
 modules/modeling/projection_model.md
 modules/modeling/probability_calibration.md
 modules/simulation/simulation_engine.md
