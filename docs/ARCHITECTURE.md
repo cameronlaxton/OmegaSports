@@ -208,7 +208,7 @@ omega-betting-agent/
 #### `modules/utilities/output_formatter.md`
 - Standardized table generation
 - Narrative analysis formatting
-- Section 9 protocol compliance
+- Required Output Format compliance
 - Module citation tracking
 
 ## Data Flow

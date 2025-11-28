@@ -83,9 +83,10 @@ Follow the workflow below, using module functions for all calculations:
 **IMPORTANT**: Code execution in Perplexity Spaces:
 - Extract Python code blocks (```python ... ```) from `.md` module files
 - Execute extracted code using get-execute in sandbox environment
-- Code has access to `/tmp/` directory for session-only temporary storage (NOT persistent)
+- Default storage paths: `data/logs/` for JSON logs, `data/exports/` for CSV files
+- Files persist in Spaces if uploaded/synced to the Space
 - Use standard Python file I/O: `open()`, `json.dump()`, `json.load()` to read/write files during session
-- **CRITICAL**: Files in `/tmp/` do NOT persist after session ends - always deliver files as attachments
+- **CRITICAL**: Always deliver files as attachments at end of task for long-term persistence
 
 ### File Storage & Fetching
 
@@ -213,7 +214,7 @@ When running weekly or periodic audits:
 
 ---
 
-## OUTPUT FORMATTING (Section 9)
+## OUTPUT FORMATTING (Required Output Format)
 
 **CRITICAL**: All analysis outputs MUST follow this exact structure. 
 

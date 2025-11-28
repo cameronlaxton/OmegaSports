@@ -350,11 +350,9 @@ See `sandbox_persistence.md` for complete schema documentation.
 ### Task Instructions
 
 See `TASK_INSTRUCTIONS.md` for simplified, paragraph-style task wording:
-- **Task 1 (Daily)**: Generate bets, run simulations, log results, deliver files
-- **Task 1B (Late Daily)**: Update pending bet results, export cumulative BetLog.csv
+- **Task 1 (Morning)**: Generate bets, run simulations, log results, deliver files
+- **Task 1B (Early Next Day)**: Update pending bet results, export cumulative BetLog.csv
 - **Task 2 (Weekly)**: Fetch data, run audit, generate calibration recommendations
-
-See `config/CombinedInstructions.md` section "PERSISTENT BET TRACKING & BACKTESTING" for detailed technical workflows.
 
 ## League Support
 
@@ -364,10 +362,6 @@ See `config/CombinedInstructions.md` section "PERSISTENT BET TRACKING & BACKTEST
 - **MLB**: Inning-based, run expectancy, weather critical
 - **NHL**: Shift-based, xG metrics, goalie adjustments
 - **NCAAF/NCAAB**: High-variance, tempo-based
-
-### Adding New Leagues
-
-See `docs/ARCHITECTURE.md` section "Extension Points" for detailed instructions.
 
 ## Key Concepts
 
@@ -383,24 +377,12 @@ Supports SGP-style correlated markets by:
 2. Deriving player stats from team outcomes via allocation rules
 3. Maintaining correlation between team and player outcomes
 
-### Edge Filters
-Minimum edges required:
-- Spread/Total: ≥ 3%
-- Moneyline: ≥ 3%
-- Props: ≥ 5%
-- SGPs: ≥ 2% (after correlation penalties)
-
-### Confidence Tiers
-- **High**: Edge ≥ 6%
-- **Medium**: Edge 3–6%
-- **Low**: Edge < 3% (included due to context or request)
 
 ## Limitations & TODOs
 
 - League-specific baselines use heuristic approximations (TODOs for regression-based implementations)
 - EPA, RE, and xG interfaces are simplified (TODOs for data-driven models)
 - No automatic data fetching (agent-controlled)
-- File-based storage only (no external databases)
 
 ## References
 
@@ -409,8 +391,4 @@ Minimum edges required:
 - `docs/SETUP.md` - GitHub setup and integration guide
 - `MODULE_LOAD_ORDER.md` - Module loading reference
 - Module-specific `.md` files - Detailed function documentation
-
-## License
-
-This project is designed for use in LLM sandbox environments. All code follows the Python-in-LLM pattern with executable code blocks in markdown files.
 
