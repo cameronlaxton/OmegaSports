@@ -289,12 +289,12 @@ Implemented in `modules/utilities/sandbox_persistence.md`:
 
 ## Output Protocol
 
-All outputs must include these tables in order:
+**CRITICAL**: All analysis outputs MUST follow this exact structure. 
 
 **Required Output:**
 1. Full Suggested Summary Table (all markets)
-  1a. Game Bets Table (spread/total/ML only/Game Props)
-  1b. Player Props Table
+ 1a. Game Bets Table (spread/total/ML only/Game Props)
+ 1b. Player Props Table
 2. SGP Mentionables *if applicable for the day*
 3. Context Drivers Narrative Briefing
 4. Risk & Stake Table (if staking recommendations made)

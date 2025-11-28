@@ -27,22 +27,22 @@ All quantitative outputs MUST originate from module functions. The source of mod
 
 ### 2. Required Output Format
 
-Every analysis must include:
+**CRITICAL**: All analysis outputs MUST follow this exact structure. 
+
+**Required Output:**
+1. Full Suggested Summary Table (all markets)
+ 1a. Game Bets Table (spread/total/ML only/Game Props)
+ 1b. Player Props Table
+2. SGP Mentionables *if applicable for the day*
+3. Context Drivers Narrative Briefing
+4. Risk & Stake Table (if staking recommendations made)
+5. Game/Performance/Metrics/Context Narrative Breakdown Analysis for ending.
 
 **Narrative Section:**
 - Analytical, concise tone 
 - Explicit module function citations (e.g., "`simulation_engine.run_game_simulation` returned true win prob = 0.62")
 - Clear statement of assumptions and fallback modes
 - Risk caveats and threshold satisfaction statements
-
-**Required Output:**
-1. Full Suggested Summary Table (all markets)
-  1a. Game Bets Table (spread/total/ML only/Game Props)
-  1b. Player Props Table
-2. SGP Mentionables *if applicable for the day*
-3. Context Drivers Narrative Briefing
-4. Risk & Stake Table (if staking recommendations made)
-5. Game/Performance/Metrics/Context Narrative Breakdown Analysis for ending.
 
 All tables must follow exact column specifications from `config/CombinedInstructions.md` Required Output Format.
 

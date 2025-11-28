@@ -146,7 +146,7 @@ output = output_formatter.format_full_output(bet_data, context_data, sim_results
 
 ## Output Protocol
 
-All outputs must follow this exact structure:
+**CRITICAL**: All analysis outputs MUST follow this exact structure. 
 
 **Required Output:**
 1. Full Suggested Summary Table (all markets)

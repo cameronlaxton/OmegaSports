@@ -220,8 +220,8 @@ When running weekly or periodic audits:
 
 **Required Output:**
 1. Full Suggested Summary Table (all markets)
-  1a. Game Bets Table (spread/total/ML only/Game Props)
-  1b. Player Props Table
+ 1a. Game Bets Table (spread/total/ML only/Game Props)
+ 1b. Player Props Table
 2. SGP Mentionables *if applicable for the day*
 3. Context Drivers Narrative Briefing
 4. Risk & Stake Table (if staking recommendations made)
