@@ -236,7 +236,7 @@ Stake Recommendation (kelly_staking)
     ↓
 Output Formatting (output_formatter)
     ↓
-Required Tables (Section 9 Protocol)
+Required Tables (Required Output Format)
 ```
 
 ## Data Storage

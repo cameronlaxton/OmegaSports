@@ -3,7 +3,7 @@
 """
 Module Name: Output Formatter
 Version: 1.0.0
-Description: Generates standardized output tables and narrative structure per Section 9 Output Protocol requirements.
+Description: Generates standardized output tables and narrative structure per Required Output Format requirements.
 Functions:
     - format_full_suggested_bets_table(bets: list) -> str
     - format_straight_bets_table(bets: list) -> str
@@ -18,7 +18,7 @@ Functions:
 Usage Notes:
     - All functions return markdown-formatted strings ready for LLM output
     - Designed for LLM sandbox environment (no external dependencies)
-    - Tables follow exact column specifications from Output Protocol Section 9
+    - Tables follow exact column specifications from Required Output Format
 """
 
 ```python
@@ -27,14 +27,14 @@ from typing import Dict, List, Optional, Any
 
 def format_full_suggested_bets_table(bets: List[Dict[str, Any]]) -> str:
     """
-    Formats Section 9.1: FULL SUGGESTED BETS SUMMARY TABLE (ALL MARKETS)
+    Formats: Full Suggested Summary Table (all markets)
     Columns: Date | League | GameID | Pick | OddsAmerican | ImpliedProb | ModelProb | Edge | ConfidenceTier | Result | Final Box Score | Factors
     """
     if not bets:
-        return "**9.1 — FULL SUGGESTED BETS SUMMARY TABLE (ALL MARKETS)**\n\n| Date | League | GameID | Pick | OddsAmerican | ImpliedProb | ModelProb | Edge | ConfidenceTier | Result | Final Box Score | Factors |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| *No qualifying bets* | - | - | - | - | - | - | - | - | - | - | - |\n"
+        return "**1. Full Suggested Summary Table (all markets)**\n\n| Date | League | GameID | Pick | OddsAmerican | ImpliedProb | ModelProb | Edge | ConfidenceTier | Result | Final Box Score | Factors |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| *No qualifying bets* | - | - | - | - | - | - | - | - | - | - | - |\n"
     
     lines = [
-        "**9.1 — FULL SUGGESTED BETS SUMMARY TABLE (ALL MARKETS)**",
+        "**1. Full Suggested Summary Table (all markets)**",
         "",
         "| Date | League | GameID | Pick | OddsAmerican | ImpliedProb | ModelProb | Edge | ConfidenceTier | Result | Final Box Score | Factors |",
         "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"
@@ -60,7 +60,7 @@ def format_full_suggested_bets_table(bets: List[Dict[str, Any]]) -> str:
 
 def format_straight_bets_table(bets: List[Dict[str, Any]]) -> str:
     """
-    Formats Section 9.2: STRAIGHT BETS SUMMARY TABLE (Spread / Total / ML Only)
+    Formats: Game Bets Table (spread/total/ML only/Game Props)
     Columns: Date | League | GameID | Pick | OddsAmerican | ImpliedProb | ModelProb | Edge | ConfidenceTier | PredictedOutcome | Result | Final Box Score | Factors
     """
     # Filter to only spread/total/ML bets
@@ -68,10 +68,10 @@ def format_straight_bets_table(bets: List[Dict[str, Any]]) -> str:
                      any(x in str(b.get("pick", "")).upper() for x in ["-", "+", "OVER", "UNDER", "O ", "U "])]
     
     if not straight_bets:
-        return "**9.2 — STRAIGHT BETS SUMMARY TABLE (Spread / Total / ML Only)**\n\n| Date | League | GameID | Pick | OddsAmerican | ImpliedProb | ModelProb | Edge | ConfidenceTier | PredictedOutcome | Result | Final Box Score | Factors |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| *No straight bets* | - | - | - | - | - | - | - | - | - | - | - | - |\n"
+        return "**1a. Game Bets Table (spread/total/ML only/Game Props)**\n\n| Date | League | GameID | Pick | OddsAmerican | ImpliedProb | ModelProb | Edge | ConfidenceTier | PredictedOutcome | Result | Final Box Score | Factors |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| *No straight bets* | - | - | - | - | - | - | - | - | - | - | - | - |\n"
     
     lines = [
-        "**9.2 — STRAIGHT BETS SUMMARY TABLE (Spread / Total / ML Only)**",
+        "**1a. Game Bets Table (spread/total/ML only/Game Props)**",
         "",
         "| Date | League | GameID | Pick | OddsAmerican | ImpliedProb | ModelProb | Edge | ConfidenceTier | PredictedOutcome | Result | Final Box Score | Factors |",
         "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"
@@ -98,7 +98,7 @@ def format_straight_bets_table(bets: List[Dict[str, Any]]) -> str:
 
 def format_props_only_table(bets: List[Dict[str, Any]]) -> str:
     """
-    Formats Section 9.3: PROPS-ONLY SUMMARY TABLE
+    Formats: Player Props Table
     Columns: Date | League | GameID | Player Prop | OddsAmerican | ImpliedProb | ModelProb | Edge | ConfidenceTier | PredictedStat | Result | Final Box Score | Factors
     """
     # Filter to only prop bets
@@ -107,10 +107,10 @@ def format_props_only_table(bets: List[Dict[str, Any]]) -> str:
                  any(x in str(b.get("pick", "")).upper() for x in ["POINTS", "REBOUNDS", "ASSISTS", "YARDS", "TD", "GOALS"])]
     
     if not prop_bets:
-        return "**9.3 — PROPS-ONLY SUMMARY TABLE**\n\n| Date | League | GameID | Player Prop | OddsAmerican | ImpliedProb | ModelProb | Edge | ConfidenceTier | PredictedStat | Result | Final Box Score | Factors |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| *No prop bets* | - | - | - | - | - | - | - | - | - | - | - | - |\n"
+        return "**1b. Player Props Table**\n\n| Date | League | GameID | Player Prop | OddsAmerican | ImpliedProb | ModelProb | Edge | ConfidenceTier | PredictedStat | Result | Final Box Score | Factors |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| *No prop bets* | - | - | - | - | - | - | - | - | - | - | - | - |\n"
     
     lines = [
-        "**9.3 — PROPS-ONLY SUMMARY TABLE**",
+        "**1b. Player Props Table**",
         "",
         "| Date | League | GameID | Player Prop | OddsAmerican | ImpliedProb | ModelProb | Edge | ConfidenceTier | PredictedStat | Result | Final Box Score | Factors |",
         "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"
@@ -137,14 +137,14 @@ def format_props_only_table(bets: List[Dict[str, Any]]) -> str:
 
 def format_clv_tracking_table(clv_data: List[Dict[str, Any]]) -> str:
     """
-    Formats Section 9.4: CLV TRACKING TABLE (Triggered)
+    Formats: CLV Tracking Table (optional, if applicable)
     Columns: Date | League | GameID | Pick | YourLine | ClosingLine | CLV | Notes
     """
     if not clv_data:
         return ""  # Don't show table if no CLV data
     
     lines = [
-        "**9.4 — CLV TRACKING TABLE**",
+        "**CLV Tracking Table**",
         "",
         "| Date | League | GameID | Pick | YourLine | ClosingLine | CLV | Notes |",
         "| --- | --- | --- | --- | --- | --- | --- | --- |"
@@ -166,14 +166,14 @@ def format_clv_tracking_table(clv_data: List[Dict[str, Any]]) -> str:
 
 def format_rejected_bets_log(rejected_bets: List[Dict[str, Any]]) -> str:
     """
-    Formats Section 9.5: REJECTED BETS LOG
+    Formats: Rejected Bets Log (optional, if applicable)
     Columns: Game | Market | Book Line | ImpliedProb | ModelProb | Edge | ReasonRejected
     """
     if not rejected_bets:
-        return "**9.5 — REJECTED BETS LOG**\n\n| Game | Market | Book Line | ImpliedProb | ModelProb | Edge | ReasonRejected |\n| --- | --- | --- | --- | --- | --- | --- |\n| *No rejected bets* | - | - | - | - | - | - |\n"
+        return "**Rejected Bets Log**\n\n| Game | Market | Book Line | ImpliedProb | ModelProb | Edge | ReasonRejected |\n| --- | --- | --- | --- | --- | --- | --- |\n| *No rejected bets* | - | - | - | - | - | - |\n"
     
     lines = [
-        "**9.5 — REJECTED BETS LOG**",
+        "**Rejected Bets Log**",
         "",
         "| Game | Market | Book Line | ImpliedProb | ModelProb | Edge | ReasonRejected |",
         "| --- | --- | --- | --- | --- | --- | --- |"
@@ -490,7 +490,7 @@ def format_full_output(bet_data: Dict[str, Any], context_data: Dict[str, Any], s
             output_parts.append(f"### Bet {i}: {bet.get('market', 'N/A')}\n")
             output_parts.append(format_narrative_analysis(bet, context_data, sim, module_citations))
     
-    # Section 9 Tables in exact order (9.1-9.5, then supporting tables)
+    # Required Output Format tables in order (1, 1a, 1b, then optional tables)
     output_parts.append(format_full_suggested_bets_table(bets))
     output_parts.append(format_straight_bets_table(bets))
     output_parts.append(format_props_only_table(bets))
@@ -501,7 +501,7 @@ def format_full_output(bet_data: Dict[str, Any], context_data: Dict[str, Any], s
     if rejected_bets:
         output_parts.append(format_rejected_bets_log(rejected_bets))
     
-    # Supporting tables (9.6-9.8)
+    # Optional supporting tables (CLV, Rejected Bets, Context Drivers, Simulation Summary, Risk & Stake)
     output_parts.append(format_context_drivers_table(context_data))
     
     if len(sims) > 0 and sims[0]:

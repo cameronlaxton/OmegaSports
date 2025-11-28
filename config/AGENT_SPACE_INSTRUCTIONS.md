@@ -23,7 +23,7 @@ Every analysis must include:
 4. Risk & Stake Table (if staking recommendations made)
 5. Game/Performance/Metrics/Context Narrative Breakdown Analysis for ending.
 
-All tables must follow exact column specifications from `config/CombinedInstructions.md` Section 9.
+All tables must follow exact column specifications from `config/CombinedInstructions.md` Required Output Format.
 
 ### 3. File Attachment Requirements
 

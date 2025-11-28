@@ -15,7 +15,7 @@ OMEGA identifies +EV (positive expected value) wagers by comparing internal simu
 - **Correlated Simulation**: SGP-style correlated market support
 - **Data Logging**: File-based storage for simulation outputs and bet recommendations
 - **Persistent Bet Tracking**: Swappable storage backend (default: `data/logs/` and `data/exports/`) with backtesting and audit capabilities
-- **Standardized Output**: Mandatory tables following Section 9 protocol
+- **Standardized Output**: Mandatory tables following Required Output Format protocol
 
 ## Quick Start
 
@@ -109,7 +109,7 @@ Modules must be loaded in this exact order (see `MODULE_LOAD_ORDER.md` for quick
 8. **Market Analysis**: Assess market confidence and sharp action
 9. **Stake Recommendation**: Calculate Kelly-based stake recommendations
 10. **Persistent Logging**: Log bets and simulation results to `data/logs/` and `data/exports/` using `OmegaCacheLogger` (swappable storage backend)
-11. **Output Formatting**: Generate required tables per Section 9 protocol
+11. **Output Formatting**: Generate required tables per Required Output Format protocol
 
 ### Example
 
@@ -146,16 +146,16 @@ output = output_formatter.format_full_output(bet_data, context_data, sim_results
 
 ## Output Protocol
 
-All outputs must include these tables in order (Section 9):
+All outputs must follow this exact structure:
 
-1. Full Suggested Bets Summary (all markets)
-2. Straight Bets Summary (spread/total/ML only)
-3. Props-Only Summary
-4. CLV Tracking (if applicable)
-5. Rejected Bets Log
-6. Context Drivers
-7. Simulation Summary
-8. Risk & Stake (if staking recommendations made)
+**Required Output:**
+1. Full Suggested Summary Table (all markets)
+ 1a. Game Bets Table (spread/total/ML only/Game Props)
+ 1b. Player Props Table
+2. SGP Mentionables *if applicable for the day*
+3. Context Drivers Narrative Briefing
+4. Risk & Stake Table (if staking recommendations made)
+5. Game/Performance/Metrics/Context Narrative Breakdown Analysis for ending.
 
 ## Data Storage
 
