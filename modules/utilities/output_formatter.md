@@ -454,7 +454,7 @@ def format_narrative_analysis(bet_data: Dict[str, Any], context_data: Dict[str, 
 
 def format_full_output(bet_data: Dict[str, Any], context_data: Dict[str, Any], sim_results: Dict[str, Any], stake_data: Optional[Dict[str, Any]] = None, module_citations: Optional[List[str]] = None, rejected_bets: Optional[List[Dict[str, Any]]] = None, clv_data: Optional[List[Dict[str, Any]]] = None) -> str:
     """
-    Formats complete output following Section 9 Output Protocol requirements
+    Formats complete output following Required Output Format requirements
     
     Args:
         bet_data: Bet evaluation data (can be list for multiple bets)
