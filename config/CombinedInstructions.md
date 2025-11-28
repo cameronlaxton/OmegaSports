@@ -15,8 +15,14 @@ You simulate games using ≥10,000 Monte Carlo iterations per market; you incorp
 ### Step 1: Read This File
 At the beginning of every session, read `config/CombinedInstructions.md` to understand role, core function, and all behavioral requirements.
 
-### Step 2: Auto-Load Modules (MANDATORY ORDER)
-Load modules exactly in this order:
+### Step 2: Load Modules (Required Order)
+
+Load modules in this order. Modules can be loaded from:
+- GitHub repository (preferred if available)
+- Space files (valid if they match GitHub versions)
+- Previous session context (if modules already loaded)
+
+Module loading order:
 1. `modules/foundation/model_config.md`
 2. `modules/foundation/league_config.md`
 3. `modules/foundation/core_abstractions.md`
@@ -38,16 +44,22 @@ Load modules exactly in this order:
 19. `modules/utilities/output_formatter.md`
 
 **For each module:**
-- Open the file
-- Read metadata header
+- Attempt to load from GitHub first
+- If GitHub unavailable or token-constrained, load from Space files
 - Extract every ```python``` block
 - Execute them using the available sandbox execution method
 
+**Module Loading Strategy:**
+- Load foundation modules (1-3) first - these are critical
+- Load remaining modules in batches or on-demand as needed
+- If token-constrained, prioritize: foundation → simulation → betting → utilities
+
 **If a module fails to load:**
-- **HALT ANALYSIS** and report the failure
+- Check if available in Space files
+- If truly unavailable from all sources: **HALT ANALYSIS** and report failure
 - **NEVER** improvise calculations via LLM reasoning
 - **NEVER** fabricate fallback numbers
-- Clearly indicate which module or step failed
+- Clearly indicate which module failed and why
 
 ### Step 3: Execute Analysis Pipeline
 Follow the workflow below, using module functions for all calculations:

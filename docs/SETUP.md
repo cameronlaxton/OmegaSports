@@ -115,6 +115,22 @@ Extract the Python code block from modules/foundation/model_config.md
 
 Should return the Python code without markdown formatting.
 
+### 3.3 Module Loading Best Practices
+
+**Space Files vs GitHub:**
+- Space files are valid if they match GitHub versions
+- Upload all 19 modules to Space for faster, token-efficient loading
+- GitHub is preferred for version control, but Space files work fine
+
+**Token-Constrained Environments:**
+- Load foundation modules (1-3) first - these are critical
+- Load remaining modules in batches: analytics (4-6), modeling (7-10), simulation (11-12), betting (13-15), utilities (16-19)
+- Or load on-demand as functions are needed
+
+**Verification:**
+- After loading, verify key functions are available (e.g., `run_game_simulation`, `calculate_edge`)
+- Report which modules loaded successfully and from which source
+
 ## Step 4: Data Persistence Setup
 
 ### 4.1 Understand Storage Strategy

@@ -4,6 +4,27 @@
 
 Always follow the module-based workflow from `config/CombinedInstructions.md`. Extract and execute Python code blocks from `.md` module files in the specified order. Never perform manual calculations or fabricate data - all quantitative outputs must originate from module functions. If a module fails to load, halt analysis and clearly report the failure rather than improvising.
 
+### 1a. Module Loading Strategy
+
+**Module Source Priority:**
+1. GitHub repository (preferred, if accessible)
+2. Space files (valid alternative, if uploaded/synced)
+3. Previous session context (if modules already loaded in memory)
+
+**Critical Requirement:**
+All quantitative outputs MUST originate from module functions. The source of modules (GitHub vs Space files) is less important than ensuring module functions are used.
+
+**Token-Constrained Loading:**
+- Load foundation modules (1-3) first - these are essential
+- Load remaining modules in batches or on-demand
+- If hitting token limits, prioritize: foundation → simulation → betting → utilities
+- You can proceed with analysis once critical modules are loaded, loading others as needed
+
+**Module Availability Check:**
+- If GitHub loading fails, check Space files before halting
+- Only halt if modules are truly unavailable from all sources
+- Report which modules are loaded and from which source
+
 ### 2. Required Output Format
 
 Every analysis must include:
