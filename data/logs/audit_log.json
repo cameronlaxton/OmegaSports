@@ -1,1 +1,48 @@
-[]
+[
+  {
+    "total_bets": 1,
+    "settled_bets": 1,
+    "wins": 1,
+    "losses": 0,
+    "pushes": 0,
+    "win_rate_pct": 100,
+    "roi_pct": 0,
+    "total_stake": 0,
+    "total_pnl": 0,
+    "avg_edge_pct": 5.6,
+    "avg_clv_pct": 1.11,
+    "brier_score": 0.1764,
+    "by_league": {
+      "NBA": {
+        "total": 1,
+        "wins": 1,
+        "losses": 0,
+        "pushes": 0,
+        "win_rate": 100
+      }
+    },
+    "by_confidence": {
+      "High": {
+        "total": 1,
+        "wins": 1,
+        "losses": 0,
+        "pushes": 0,
+        "win_rate": 100
+      }
+    },
+    "by_bet_type": {
+      "spread": {
+        "total": 1,
+        "wins": 1,
+        "losses": 0,
+        "pushes": 0,
+        "win_rate": 100
+      }
+    },
+    "audit_date": "2025-12-22T17:50:53.936Z",
+    "date_range": {
+      "start": null,
+      "end": null
+    }
+  }
+]
