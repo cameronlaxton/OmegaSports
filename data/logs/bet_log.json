@@ -16,11 +16,11 @@
     "stake_units": null,
     "stake_amount": null,
     "game_id": null,
-    "result": null,
-    "final_score": null,
-    "closing_odds": null,
-    "clv_pct": null,
+    "result": "Win",
+    "final_score": "Lakers 118, Warriors 105",
+    "closing_odds": "-115",
+    "clv_pct": 1.1074197120708784,
     "logged_at": "2025-12-22T17:50:33.456Z",
-    "updated_at": null
+    "updated_at": "2025-12-22T17:50:43.996Z"
   }
 ]
