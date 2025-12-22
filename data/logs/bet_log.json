@@ -1,0 +1,26 @@
+[
+  {
+    "bet_id": "2025-12-22_NBA_1",
+    "date": "2025-12-22",
+    "league": "NBA",
+    "matchup": "Lakers vs Warriors",
+    "pick": "LAL -3.5",
+    "bet_type": "spread",
+    "odds": "-110",
+    "implied_prob": 0.524,
+    "model_prob": 0.58,
+    "edge_pct": 5.6,
+    "confidence": "High",
+    "predicted_outcome": "Lakers 115, Warriors 108",
+    "factors": "Lakers home court advantage, Warriors missing key players",
+    "stake_units": null,
+    "stake_amount": null,
+    "game_id": null,
+    "result": null,
+    "final_score": null,
+    "closing_odds": null,
+    "clv_pct": null,
+    "logged_at": "2025-12-22T17:50:33.456Z",
+    "updated_at": null
+  }
+]
