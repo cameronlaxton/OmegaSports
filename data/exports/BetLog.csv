@@ -1,0 +1,2 @@
+Date,League,Game_ID,Pick,Odds_American,Implied_Prob,Model_Prob,Edge_%,Confidence_Tier,Predicted_Outcome,Factors,Final_Box_Score,Result
+2025-12-22,NBA,Lakers vs Warriors,"LAL -3.5",-110,0.524,0.58,5.6,High,"Lakers 115, Warriors 108","Lakers home court advantage, Warriors missing key players","Lakers 118, Warriors 105",Win
